@@ -8,8 +8,8 @@ struct ShortcutDefinition: Equatable {
 
   static let defaultValue = Self(
     keyCode: UInt32(kVK_ANSI_2),
-    modifiers: UInt32(controlKey | shiftKey),
-    label: "⌃⇧2"
+    modifiers: UInt32(controlKey | cmdKey),
+    label: "⌃⌘2"
   )
 
   static var current: Self {

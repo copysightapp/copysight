@@ -8,9 +8,9 @@
       name="description"
       content="Copy text from any pixel on your Mac. Native, private OCR with a menu bar app and an open-source CLI."
     />
-    <meta name="theme-color" content="#f2efe7" />
+    <meta name="theme-color" content="#f7f7f5" />
     <link rel="canonical" href="https://copysight.guillermozubikarai.dev/" />
-    <link rel="stylesheet" href="/styles.css?v=1.0.0" />
+    <link rel="stylesheet" href="/styles.css?v=1.1.0" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -18,9 +18,10 @@
         "name": "CopySight",
         "operatingSystem": "macOS 14 or later",
         "applicationCategory": "UtilitiesApplication",
-        "softwareVersion": "1.0.0",
+        "softwareVersion": "1.1.0",
         "license": "https://opensource.org/license/mit",
-        "downloadUrl": "https://github.com/kattulus1997/copysight/releases/latest/download/CopySight-1.0.0.dmg",
+        "downloadUrl": "https://github.com/kattulus1997/copysight/releases/latest/download/CopySight-1.1.0.dmg",
+        "installUrl": "https://apps.apple.com/app/id6797554906",
         "codeRepository": "https://github.com/kattulus1997/copysight"
       }
     </script>
@@ -40,34 +41,33 @@
     <main id="top">
       <section class="hero">
         <div class="hero-copy">
-          <h1>Copy text from any pixel.</h1>
+          <h1>Screen text. Copied.</h1>
           <p class="lede">
             Press a shortcut, drag over text, and paste. CopySight uses Apple Vision on your Mac—no uploads,
             accounts, or background services.
           </p>
           <div class="actions">
-            <a class="primary-action" href="https://github.com/kattulus1997/copysight/releases/latest/download/CopySight-1.0.0.dmg">
-              Download for macOS
+            <a class="primary-action" href="https://apps.apple.com/app/id6797554906">
+              Mac App Store
             </a>
-            <a class="text-action" href="#cli">Install the CLI →</a>
+            <a class="text-action" href="https://github.com/kattulus1997/copysight/releases/latest/download/CopySight-1.1.0.dmg">Direct download →</a>
           </div>
           <p class="requirements">Free · MIT licensed · macOS 14+ · Apple Silicon and Intel</p>
         </div>
 
         <div class="capture-demo" aria-label="Illustration of selecting text on screen">
-          <div class="window-bar"><i></i><i></i><i></i><span>research-notes.pdf</span></div>
+          <div class="window-bar">research-notes.pdf</div>
           <div class="document">
             <p>Images are useful until the words inside them become unreachable.</p>
             <p class="selected">CopySight turns this exact region into editable text.</p>
             <p>The image never leaves your Mac.</p>
-            <div class="selection-label">OCR · 0.16 s warm sample</div>
           </div>
-          <div class="shortcut">⌃ ⇧ 2</div>
+          <div class="shortcut">⌃ ⌘ 2</div>
         </div>
       </section>
 
       <section class="principles" aria-labelledby="principles-title">
-        <h2 id="principles-title">One job, done natively.</h2>
+        <h2 id="principles-title">What happens after ⌃⌘2</h2>
         <dl>
           <div><dt>Accurate</dt><dd>Vision’s accurate recognition mode, language detection, and correction.</dd></div>
           <div><dt>Immediate</dt><dd>Retina region capture and OCR off the main thread.</dd></div>
@@ -77,7 +77,7 @@
 
       <section class="steps" aria-labelledby="steps-title">
         <div>
-          <h2 id="steps-title">From screen to clipboard in three moves.</h2>
+          <h2 id="steps-title">Capture text in three steps.</h2>
         </div>
         <ol>
           <li><strong>Start</strong><span>Press your global shortcut or choose Capture Text.</span></li>
@@ -105,12 +105,12 @@ El texto reconocido se imprime directamente.</code></pre>
       </section>
 
       <section class="details" id="privacy" aria-labelledby="details-title">
-        <h2 id="details-title">Designed to stay out of the way.</h2>
-        <div class="detail-grid">
+        <h2 id="details-title">What CopySight accesses</h2>
+        <div class="detail-list">
           <article><h3>Nothing to sign in to</h3><p>CopySight has no backend. It only asks macOS for Screen Recording permission so it can read the pixels you select.</p></article>
-          <article><h3>No Dock clutter</h3><p>The app lives in the menu bar. Change the shortcut, language, line breaks, and completion sound in Settings.</p></article>
-          <article><h3>Inspectable by default</h3><p>App, CLI, packaging scripts, tests, and this website are published under the MIT license.</p></article>
-          <article><h3>Built for both Mac architectures</h3><p>The signed release is universal for Apple Silicon and Intel Macs running macOS 14 or later.</p></article>
+          <article><h3>Only the menu bar</h3><p>The app has no Dock window. Settings cover the shortcut, OCR language, line breaks, sound, login launch, and Spanish or English interface.</p></article>
+          <article><h3>Source included</h3><p>App, CLI, packaging scripts, tests, and this website are published under the MIT license.</p></article>
+          <article><h3>Apple Silicon and Intel</h3><p>The signed release is universal and runs on macOS 14 or later.</p></article>
         </div>
       </section>
 
@@ -123,15 +123,14 @@ El texto reconocido se imprime directamente.</code></pre>
       </section>
 
       <section class="final-cta">
-        <p>Text should never be trapped in pixels.</p>
-        <a class="primary-action" href="https://github.com/kattulus1997/copysight/releases/latest/download/CopySight-1.0.0.dmg">Download CopySight 1.0.0</a>
+        <p>Download the signed macOS build.</p>
+        <a class="primary-action" href="https://apps.apple.com/app/id6797554906">Get CopySight on the Mac App Store</a>
       </section>
     </main>
 
     <footer>
-      <!-- deslop-ignore-next-line 15 -->
-      <span>CopySight © 2026 Guillermo Zubikarai</span>
-      <span><a href="https://github.com/kattulus1997/copysight">GitHub</a> · <a href="https://github.com/kattulus1997/copysight/blob/main/LICENSE">MIT License</a></span>
+      <span>CopySight · Copyright 2026 Guillermo Zubikarai</span>
+      <span><a href="https://apps.apple.com/app/id6797554906">Mac App Store</a> · <a href="https://github.com/kattulus1997/copysight">GitHub</a> · <a href="https://github.com/kattulus1997/copysight/blob/main/LICENSE">MIT License</a></span>
     </footer>
     <script src="/app.js" defer></script>
   </body>

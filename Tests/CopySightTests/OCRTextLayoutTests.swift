@@ -1,3 +1,4 @@
+import Carbon.HIToolbox
 import CoreGraphics
 import CoreText
 import XCTest
@@ -6,6 +7,12 @@ import XCTest
 @testable import CopySightCore
 
 final class OCRTextLayoutTests: XCTestCase {
+  func testDefaultShortcutIsControlCommand2() {
+    XCTAssertEqual(ShortcutDefinition.defaultValue.keyCode, UInt32(kVK_ANSI_2))
+    XCTAssertEqual(ShortcutDefinition.defaultValue.modifiers, UInt32(controlKey | cmdKey))
+    XCTAssertEqual(ShortcutDefinition.defaultValue.label, "⌃⌘2")
+  }
+
   func testOrdersLinesFromTopToBottom() {
     let fragments = [
       RecognizedFragment(text: "second", bounds: CGRect(x: 0.1, y: 0.2, width: 0.4, height: 0.1)),

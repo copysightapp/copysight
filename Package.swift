@@ -3,6 +3,7 @@ import PackageDescription
 
 let package = Package(
   name: "CopySight",
+  defaultLocalization: "en",
   platforms: [.macOS(.v14)],
   products: [
     .executable(name: "CopySight", targets: ["CopySight"]),
@@ -10,7 +11,8 @@ let package = Package(
   ],
   targets: [
     .target(name: "CopySightCore"),
-    .executableTarget(name: "CopySight", dependencies: ["CopySightCore"]),
+    .executableTarget(
+      name: "CopySight", dependencies: ["CopySightCore"], resources: [.process("Resources")]),
     .executableTarget(name: "CopySightCLI", dependencies: ["CopySightCore"]),
     .testTarget(name: "CopySightTests", dependencies: ["CopySight", "CopySightCore"]),
   ]

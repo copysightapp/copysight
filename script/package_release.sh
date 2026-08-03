@@ -2,7 +2,7 @@
 set -euo pipefail
 
 APP_NAME="CopySight"
-VERSION="1.0.0"
+VERSION="1.1.0"
 BUNDLE_ID="app.copysight.mac"
 MIN_SYSTEM_VERSION="14.0"
 DEVELOPER_ID="${COPY_SIGHT_DEVELOPER_ID:-Developer ID Application: Guillermo López (99S8SSZP82)}"
@@ -42,22 +42,28 @@ for points in 16 32 128 256 512; do
   /usr/bin/sips -z "$pixels" "$pixels" "$ICON_WORK/icon_1024x1024.png" --out "$ICON_WORK/CopySight.iconset/icon_${points}x${points}@2x.png" >/dev/null
 done
 /usr/bin/iconutil -c icns "$ICON_WORK/CopySight.iconset" -o "$RESOURCES_DIR/CopySight.icns"
+cp -R Sources/CopySight/Resources/en.lproj Sources/CopySight/Resources/es.lproj "$RESOURCES_DIR/"
 
 cat >"$CONTENTS/Info.plist" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0"><dict>
+  <key>CFBundleDevelopmentRegion</key><string>en</string>
   <key>CFBundleExecutable</key><string>$APP_NAME</string>
   <key>CFBundleIdentifier</key><string>$BUNDLE_ID</string>
   <key>CFBundleIconFile</key><string>CopySight.icns</string>
   <key>CFBundleName</key><string>$APP_NAME</string>
+  <key>CFBundleLocalizations</key><array><string>en</string><string>es</string></array>
   <key>CFBundlePackageType</key><string>APPL</string>
   <key>CFBundleShortVersionString</key><string>$VERSION</string>
-  <key>CFBundleVersion</key><string>1</string>
+  <key>CFBundleVersion</key><string>4</string>
   <key>LSMinimumSystemVersion</key><string>$MIN_SYSTEM_VERSION</string>
+  <key>ITSAppUsesNonExemptEncryption</key><false/>
   <key>LSUIElement</key><true/>
   <key>NSHighResolutionCapable</key><true/>
   <key>NSPrincipalClass</key><string>NSApplication</string>
+  <key>LSApplicationCategoryType</key><string>public.app-category.utilities</string>
+  <key>NSScreenCaptureUsageDescription</key><string>CopySight captures only the screen region you select so it can recognize its text.</string>
 </dict></plist>
 PLIST
 

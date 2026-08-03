@@ -136,16 +136,14 @@ private final class SelectionView: NSView {
   }
 
   private func drawInstruction() {
-    let text = "Drag over text  •  Escape to cancel" as NSString
+    let text = L10n.text("overlay.instruction") as NSString
     let attributes: [NSAttributedString.Key: Any] = [
       .font: NSFont.systemFont(ofSize: 13, weight: .medium),
       .foregroundColor: NSColor.white,
       .backgroundColor: NSColor.black.withAlphaComponent(0.72),
     ]
     let size = text.size(withAttributes: attributes)
-    text.draw(
-      at: CGPoint(x: bounds.midX - size.width / 2, y: bounds.midY - size.height / 2),
-      withAttributes: attributes)
+    text.draw(at: CGPoint(x: 18, y: bounds.maxY - size.height - 18), withAttributes: attributes)
   }
 
   private func drawDimensions() {

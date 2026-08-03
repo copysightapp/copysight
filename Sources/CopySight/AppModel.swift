@@ -14,12 +14,12 @@ final class AppModel {
 
     var message: String {
       switch self {
-      case .idle: "Ready"
-      case .selecting: "Drag over text; Escape cancels"
-      case .recognizing: "Recognizing…"
-      case .copied(let count): "Copied \(count) characters"
-      case .found(let count): "Found \(count) characters"
-      case .noText: "No text found"
+      case .idle: L10n.text("phase.ready")
+      case .selecting: L10n.text("phase.selecting")
+      case .recognizing: L10n.text("phase.recognizing")
+      case .copied(let count): L10n.text("phase.copied", count)
+      case .found(let count): L10n.text("phase.found", count)
+      case .noText: L10n.text("phase.no_text")
       case .failed(let message): message
       }
     }
@@ -68,7 +68,7 @@ final class AppModel {
   }
 
   func reportHotKeyUnavailable() {
-    phase = .failed("Shortcut unavailable; choose another in Settings")
+    phase = .failed(L10n.text("error.shortcut_unavailable"))
   }
 
   private func process(_ selection: ScreenSelection) async {
