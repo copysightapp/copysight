@@ -8,8 +8,8 @@ enum CaptureError: LocalizedError {
 
   var errorDescription: String? {
     switch self {
-    case .displayUnavailable: "The selected display is no longer available."
-    case .invalidSelection: "The selected area is too small to capture."
+    case .displayUnavailable: L10n.text("error.display_unavailable")
+    case .invalidSelection: L10n.text("error.invalid_selection")
     }
   }
 }

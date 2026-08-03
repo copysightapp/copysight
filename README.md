@@ -2,7 +2,7 @@
 
 CopySight es una app OCR nativa y de código abierto para macOS. Pulsa el atajo global, arrastra sobre cualquier texto visible y obtén el resultado en el portapapeles.
 
-[Descargar CopySight 1.0.0](https://github.com/kattulus1997/copysight/releases/latest/download/CopySight-1.0.0.dmg) · [Web](https://copysight.guillermozubikarai.dev)
+[Mac App Store](https://apps.apple.com/app/id6797554906) · [Descarga directa 1.1.0](https://github.com/kattulus1997/copysight/releases/latest/download/CopySight-1.1.0.dmg) · [Web](https://copysight.guillermozubikarai.dev)
 
 ## Por qué es rápida
 
@@ -10,6 +10,7 @@ CopySight es una app OCR nativa y de código abierto para macOS. Pulsa el atajo 
 - `Vision` ejecuta reconocimiento preciso y corrección lingüística en el dispositivo.
 - El OCR sale del hilo principal; la interfaz sigue respondiendo durante el análisis.
 - El atajo global usa Carbon, sin monitorizar el teclado ni pedir permiso de Accesibilidad.
+- La interfaz se adapta al español o al inglés configurado en macOS.
 - No hay procesos auxiliares, red, analítica, historial persistente ni dependencias externas.
 
 ## Requisitos
@@ -54,11 +55,11 @@ La Release pública se genera con `script/package_release.sh`: binario universal
 ## Uso
 
 1. Abre CopySight; aparecerá un icono en la barra de menús.
-2. Pulsa `⌃⇧2` (personalizable) o elige **Capture Text**.
+2. Pulsa `⌃⌘2` (personalizable) o elige **Capture Text**.
 3. Arrastra sobre el texto. `Escape` o clic derecho cancelan.
 4. Pega el resultado en cualquier app.
 
-Los ajustes permiten elegir detección automática, inglés o español, conservar saltos de línea y personalizar el atajo.
+Los ajustes permiten abrir CopySight al iniciar sesión, elegir detección automática, inglés o español, conservar saltos de línea y personalizar el atajo.
 
 ## Privacidad
 

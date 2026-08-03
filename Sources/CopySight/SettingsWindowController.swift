@@ -6,16 +6,18 @@ import CoreGraphics
 final class SettingsWindowController: NSWindowController, NSWindowDelegate {
   private let defaults = UserDefaults.standard
   private let language = NSPopUpButton()
+  private let launchAtLogin = NSButton(
+    checkboxWithTitle: L10n.text("settings.open_at_login"), target: nil, action: nil)
   private let permissionStatus = NSTextField(labelWithString: "")
 
   convenience init() {
     let window = NSWindow(
-      contentRect: NSRect(x: 0, y: 0, width: 440, height: 450),
+      contentRect: NSRect(x: 0, y: 0, width: 440, height: 480),
       styleMask: [.titled, .closable],
       backing: .buffered,
       defer: false
     )
-    window.title = "CopySight Settings"
+    window.title = L10n.text("settings.title")
     window.isReleasedWhenClosed = false
     window.center()
     self.init(window: window)
@@ -24,6 +26,7 @@ final class SettingsWindowController: NSWindowController, NSWindowDelegate {
   }
 
   func windowDidBecomeKey(_ notification: Notification) {
+    updateLaunchAtLoginStatus()
     updatePermissionStatus()
   }
 
@@ -36,29 +39,40 @@ final class SettingsWindowController: NSWindowController, NSWindowDelegate {
     stack.translatesAutoresizingMaskIntoConstraints = false
     content.addSubview(stack)
 
-    stack.addArrangedSubview(sectionTitle("Recognition"))
-    language.addItems(withTitles: RecognitionLanguage.allCases.map(\.title))
+    stack.addArrangedSubview(sectionTitle(L10n.text("settings.general")))
+    launchAtLogin.target = self
+    launchAtLogin.action = #selector(toggleLaunchAtLogin)
+    stack.addArrangedSubview(launchAtLogin)
+    stack.addArrangedSubview(separator())
+
+    stack.addArrangedSubview(sectionTitle(L10n.text("settings.recognition")))
+    language.addItems(
+      withTitles: RecognitionLanguage.allCases.map { L10n.text("language.\($0.rawValue)") })
     language.selectItem(at: RecognitionLanguage.allCases.firstIndex(of: currentLanguage) ?? 0)
     language.target = self
     language.action = #selector(languageChanged)
-    stack.addArrangedSubview(row(label: "Language", control: language))
-    stack.addArrangedSubview(
-      checkbox("Use language correction", key: PreferenceKey.languageCorrection, defaultValue: true)
-    )
-    stack.addArrangedSubview(
-      checkbox("Preserve line breaks", key: PreferenceKey.preserveLineBreaks, defaultValue: true))
-    stack.addArrangedSubview(separator())
-
-    stack.addArrangedSubview(sectionTitle("Result"))
+    stack.addArrangedSubview(row(label: L10n.text("settings.language"), control: language))
     stack.addArrangedSubview(
       checkbox(
-        "Copy recognized text automatically", key: PreferenceKey.copyAutomatically,
-        defaultValue: true))
+        L10n.text("settings.language_correction"), key: PreferenceKey.languageCorrection,
+        defaultValue: true)
+    )
     stack.addArrangedSubview(
-      checkbox("Play a sound when finished", key: PreferenceKey.playSound, defaultValue: true))
+      checkbox(
+        L10n.text("settings.line_breaks"), key: PreferenceKey.preserveLineBreaks,
+        defaultValue: true))
     stack.addArrangedSubview(separator())
 
-    stack.addArrangedSubview(sectionTitle("Shortcut"))
+    stack.addArrangedSubview(sectionTitle(L10n.text("settings.result")))
+    stack.addArrangedSubview(
+      checkbox(
+        L10n.text("settings.copy_automatically"), key: PreferenceKey.copyAutomatically,
+        defaultValue: true))
+    stack.addArrangedSubview(
+      checkbox(L10n.text("settings.sound"), key: PreferenceKey.playSound, defaultValue: true))
+    stack.addArrangedSubview(separator())
+
+    stack.addArrangedSubview(sectionTitle(L10n.text("settings.shortcut")))
     let shortcut = ShortcutButton(frame: NSRect(x: 0, y: 0, width: 130, height: 28))
     shortcut.onChange = { definition in
       let defaults = UserDefaults.standard
@@ -67,28 +81,23 @@ final class SettingsWindowController: NSWindowController, NSWindowDelegate {
       defaults.set(definition.label, forKey: PreferenceKey.shortcutLabel)
       NotificationCenter.default.post(name: .copySightShortcutChanged, object: nil)
     }
-    stack.addArrangedSubview(row(label: "Capture Text", control: shortcut))
+    stack.addArrangedSubview(row(label: L10n.text("menu.capture_text"), control: shortcut))
     stack.addArrangedSubview(separator())
 
-    stack.addArrangedSubview(sectionTitle("Screen Recording"))
+    stack.addArrangedSubview(sectionTitle(L10n.text("settings.screen_recording")))
     let permissionButton = NSButton(
-      title: "Open System Settings", target: self, action: #selector(openPermissionSettings))
-    stack.addArrangedSubview(row(label: "Permission", control: permissionStatus))
+      title: L10n.text("settings.open_system_settings"), target: self,
+      action: #selector(openPermissionSettings))
+    stack.addArrangedSubview(
+      row(label: L10n.text("settings.permission"), control: permissionStatus))
     stack.addArrangedSubview(permissionButton)
-
-    let privacy = NSTextField(
-      wrappingLabelWithString:
-        "CopySight processes captures on this Mac. Images are never saved or uploaded.")
-    privacy.textColor = .secondaryLabelColor
-    privacy.font = .systemFont(ofSize: NSFont.smallSystemFontSize)
-    stack.addArrangedSubview(privacy)
 
     NSLayoutConstraint.activate([
       stack.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 24),
       stack.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -24),
       stack.topAnchor.constraint(equalTo: content.topAnchor, constant: 22),
-      privacy.widthAnchor.constraint(equalTo: stack.widthAnchor),
     ])
+    updateLaunchAtLoginStatus()
     updatePermissionStatus()
     return content
   }
@@ -144,6 +153,17 @@ final class SettingsWindowController: NSWindowController, NSWindowDelegate {
     defaults.set(sender.state == .on, forKey: key)
   }
 
+  @objc private func toggleLaunchAtLogin(_ sender: NSButton) {
+    do {
+      try LaunchAtLogin.setEnabled(sender.state == .on)
+    } catch {
+      let alert = NSAlert(error: error)
+      alert.messageText = L10n.text("settings.login_error")
+      alert.runModal()
+    }
+    updateLaunchAtLoginStatus()
+  }
+
   @objc private func openPermissionSettings() {
     if !CGPreflightScreenCaptureAccess() { _ = CGRequestScreenCaptureAccess() }
     if let url = URL(
@@ -155,8 +175,14 @@ final class SettingsWindowController: NSWindowController, NSWindowDelegate {
   }
 
   private func updatePermissionStatus() {
-    permissionStatus.stringValue = CGPreflightScreenCaptureAccess() ? "Allowed" : "Required"
+    permissionStatus.stringValue =
+      CGPreflightScreenCaptureAccess()
+      ? L10n.text("settings.allowed") : L10n.text("settings.required")
     permissionStatus.textColor =
       CGPreflightScreenCaptureAccess() ? .secondaryLabelColor : .controlAccentColor
+  }
+
+  private func updateLaunchAtLoginStatus() {
+    launchAtLogin.state = LaunchAtLogin.isEnabled ? .on : .off
   }
 }

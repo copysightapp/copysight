@@ -6,7 +6,10 @@ const css = await readFile(new URL("./styles.css", import.meta.url), "utf8");
 const config = JSON.parse(await readFile(new URL("./vercel.json", import.meta.url), "utf8"));
 
 assert.match(html, /brew install kattulus1997\/copysight\/copysight/);
-assert.match(html, /CopySight-1\.0\.0\.dmg/g);
+assert.match(html, /CopySight-1\.1\.0\.dmg/g);
+assert.match(html, /https:\/\/apps\.apple\.com\/app\/id6797554906/g);
+assert.match(html, /⌃ ⌘ 2/);
+assert.match(html, /Screen text\. Copied\./);
 assert.match(html, /canonical.*copysight\.guillermozubikarai\.dev/);
 assert.match(html, /application\/ld\+json/);
 assert.match(css, /@media \(max-width: 600px\)/);

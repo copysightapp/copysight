@@ -21,9 +21,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
   private let phaseItem = NSMenuItem()
   private let shortcutItem = NSMenuItem()
   private let previousItem = NSMenuItem(
-    title: "Capture Previous Selection", action: #selector(capturePrevious), keyEquivalent: "")
+    title: L10n.text("menu.capture_previous"), action: #selector(capturePrevious), keyEquivalent: ""
+  )
   private let copyItem = NSMenuItem(
-    title: "Copy Last Text", action: #selector(copyLast), keyEquivalent: "")
+    title: L10n.text("menu.copy_last"), action: #selector(copyLast), keyEquivalent: "")
 
   func applicationDidFinishLaunching(_ notification: Notification) {
     NSApp.setActivationPolicy(.accessory)
@@ -48,6 +49,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
   }
 
+  func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool
+  {
+    showSettings()
+    return true
+  }
+
   func menuWillOpen(_ menu: NSMenu) {
     refreshMenu()
   }
@@ -60,7 +67,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     let menu = NSMenu()
     menu.delegate = self
-    menu.addItem(menuItem("Capture Text", action: #selector(capture)))
+    menu.addItem(menuItem(L10n.text("menu.capture_text"), action: #selector(capture)))
     menu.addItem(previousItem)
     menu.addItem(.separator())
     phaseItem.isEnabled = false
@@ -70,8 +77,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     menu.addItem(.separator())
     menu.addItem(copyItem)
     menu.addItem(.separator())
-    menu.addItem(menuItem("Settings…", action: #selector(showSettings), keyEquivalent: ","))
-    menu.addItem(menuItem("Quit CopySight", action: #selector(quit), keyEquivalent: "q"))
+    menu.addItem(
+      menuItem(L10n.text("menu.settings"), action: #selector(showSettings), keyEquivalent: ","))
+    menu.addItem(menuItem(L10n.text("menu.quit"), action: #selector(quit), keyEquivalent: "q"))
     statusBarItem.menu = menu
     refreshMenu()
   }
@@ -85,7 +93,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
   private func refreshMenu() {
     phaseItem.title = model.phase.message
-    shortcutItem.title = "Shortcut: \(ShortcutDefinition.current.label)"
+    shortcutItem.title = L10n.text("menu.shortcut", ShortcutDefinition.current.label)
     previousItem.isEnabled = model.hasPreviousSelection && !model.phase.isBusy
     copyItem.isEnabled = !model.lastText.isEmpty
     statusBarItem?.button?.toolTip = "CopySight — \(model.phase.message)"

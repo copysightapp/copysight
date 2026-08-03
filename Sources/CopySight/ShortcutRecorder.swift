@@ -21,7 +21,7 @@ final class ShortcutButton: NSButton {
 
   @objc private func beginRecording() {
     isRecording = true
-    title = "Type shortcut…"
+    title = L10n.text("shortcut.record")
     window?.makeFirstResponder(self)
   }
 
@@ -85,7 +85,7 @@ final class ShortcutButton: NSButton {
     switch Int(event.keyCode) {
     case kVK_Return: return "↩"
     case kVK_Tab: return "⇥"
-    case kVK_Space: return "Space"
+    case kVK_Space: return L10n.text("shortcut.space")
     case kVK_Delete: return "⌫"
     case kVK_LeftArrow: return "←"
     case kVK_RightArrow: return "→"

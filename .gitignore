@@ -2,6 +2,9 @@
 .swiftpm/
 dist/
 release/
+appstore/*.app
+appstore/*.pkg
+appstore/*.provisionprofile
 .vercel/
 .env*.local
 .DS_Store
