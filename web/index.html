@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CopySight — Fast, private OCR for macOS</title>
+    <meta
+      name="description"
+      content="Copy text from any pixel on your Mac. Native, private OCR with a menu bar app and an open-source CLI."
+    />
+    <meta name="theme-color" content="#f2efe7" />
+    <link rel="canonical" href="https://copysight.guillermozubikarai.dev/" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "CopySight",
+        "operatingSystem": "macOS 14 or later",
+        "applicationCategory": "UtilitiesApplication",
+        "softwareVersion": "1.0.0",
+        "license": "https://opensource.org/license/mit",
+        "downloadUrl": "https://github.com/kattulus1997/copysight/releases/latest/download/CopySight-1.0.0.dmg",
+        "codeRepository": "https://github.com/kattulus1997/copysight"
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="CopySight home">
+        <span aria-hidden="true">⌗</span> CopySight
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#cli">CLI</a>
+        <a href="#privacy">Privacy</a>
+        <a href="https://github.com/kattulus1997/copysight">Source</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <h1>Copy text from any pixel.</h1>
+          <p class="lede">
+            Press a shortcut, drag over text, and paste. CopySight uses Apple Vision on your Mac—no uploads,
+            accounts, or background services.
+          </p>
+          <div class="actions">
+            <a class="primary-action" href="https://github.com/kattulus1997/copysight/releases/latest/download/CopySight-1.0.0.dmg">
+              Download for macOS
+            </a>
+            <a class="text-action" href="#cli">Install the CLI →</a>
+          </div>
+          <p class="requirements">Free · MIT licensed · macOS 14+ · Apple Silicon and Intel</p>
+        </div>
+
+        <div class="capture-demo" aria-label="Illustration of selecting text on screen">
+          <div class="window-bar"><i></i><i></i><i></i><span>research-notes.pdf</span></div>
+          <div class="document">
+            <p>Images are useful until the words inside them become unreachable.</p>
+            <p class="selected">CopySight turns this exact region into editable text.</p>
+            <p>The image never leaves your Mac.</p>
+            <div class="selection-label">OCR · 0.16 s warm sample</div>
+          </div>
+          <div class="shortcut">⌃ ⇧ 2</div>
+        </div>
+      </section>
+
+      <section class="principles" aria-labelledby="principles-title">
+        <h2 id="principles-title">One job, done natively.</h2>
+        <dl>
+          <div><dt>Accurate</dt><dd>Vision’s accurate recognition mode, language detection, and correction.</dd></div>
+          <div><dt>Immediate</dt><dd>Retina region capture and OCR off the main thread.</dd></div>
+          <div><dt>Private</dt><dd>No network code, analytics, saved images, or account system.</dd></div>
+        </dl>
+      </section>
+
+      <section class="steps" aria-labelledby="steps-title">
+        <div>
+          <h2 id="steps-title">From screen to clipboard in three moves.</h2>
+        </div>
+        <ol>
+          <li><strong>Start</strong><span>Press your global shortcut or choose Capture Text.</span></li>
+          <li><strong>Select</strong><span>Drag over text on any connected display.</span></li>
+          <li><strong>Paste</strong><span>The recognized text is ready in the clipboard.</span></li>
+        </ol>
+      </section>
+
+      <section class="cli" id="cli" aria-labelledby="cli-title">
+        <div class="cli-intro">
+          <h2 id="cli-title">The same OCR engine, scriptable.</h2>
+          <p>Install from the official Homebrew tap, then send any PNG, JPEG, TIFF, PDF image, or HEIC file to stdout.</p>
+        </div>
+        <div class="terminal" aria-label="CopySight CLI installation commands">
+          <div class="terminal-row">
+            <code>brew install kattulus1997/copysight/copysight</code>
+            <button type="button" data-copy="brew install kattulus1997/copysight/copysight">Copy</button>
+          </div>
+          <pre><code><span>$</span> copysight screenshot.png
+CopySight turns this exact region into editable text.
+
+<span>$</span> copysight --language es documento.jpg
+El texto reconocido se imprime directamente.</code></pre>
+        </div>
+      </section>
+
+      <section class="details" id="privacy" aria-labelledby="details-title">
+        <h2 id="details-title">Designed to stay out of the way.</h2>
+        <div class="detail-grid">
+          <article><h3>Nothing to sign in to</h3><p>CopySight has no backend. It only asks macOS for Screen Recording permission so it can read the pixels you select.</p></article>
+          <article><h3>No Dock clutter</h3><p>The app lives in the menu bar. Change the shortcut, language, line breaks, and completion sound in Settings.</p></article>
+          <article><h3>Inspectable by default</h3><p>App, CLI, packaging scripts, tests, and this website are published under the MIT license.</p></article>
+          <article><h3>Built for both Mac architectures</h3><p>The signed release is universal for Apple Silicon and Intel Macs running macOS 14 or later.</p></article>
+        </div>
+      </section>
+
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Questions before installing</h2>
+        <details><summary>Does CopySight upload screenshots?</summary><p>No. Screen capture and OCR run locally with ScreenCaptureKit and Vision. Captured images are not saved.</p></details>
+        <details><summary>Why is Screen Recording permission required?</summary><p>macOS protects screen pixels. CopySight needs that system permission only to capture the region you draw.</p></details>
+        <details><summary>Which languages work?</summary><p>Automatic detection is the default. English and Spanish can also be selected explicitly for more predictable correction.</p></details>
+        <details><summary>Can I use it from scripts?</summary><p>Yes. The <code>copysight</code> CLI writes recognized text to stdout and errors to stderr.</p></details>
+      </section>
+
+      <section class="final-cta">
+        <p>Text should never be trapped in pixels.</p>
+        <a class="primary-action" href="https://github.com/kattulus1997/copysight/releases/latest/download/CopySight-1.0.0.dmg">Download CopySight 1.0.0</a>
+      </section>
+    </main>
+
+    <footer>
+      <!-- deslop-ignore-next-line 15 -->
+      <span>CopySight © 2026 Guillermo Zubikarai</span>
+      <span><a href="https://github.com/kattulus1997/copysight">GitHub</a> · <a href="https://github.com/kattulus1997/copysight/blob/main/LICENSE">MIT License</a></span>
+    </footer>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
