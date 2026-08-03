@@ -16,7 +16,6 @@ RESOURCES_DIR="$CONTENTS/Resources"
 ARM_SCRATCH="$ROOT_DIR/.build/release-arm64"
 X86_SCRATCH="$ROOT_DIR/.build/release-x86_64"
 DMG_PATH="$RELEASE_DIR/$APP_NAME-$VERSION.dmg"
-CLI_ARCHIVE="$RELEASE_DIR/copysight-cli-$VERSION-macos-universal.tar.gz"
 
 cd "$ROOT_DIR"
 swift build -c release --arch arm64 --scratch-path "$ARM_SCRATCH"
@@ -25,15 +24,14 @@ ARM_BIN="$(swift build -c release --arch arm64 --scratch-path "$ARM_SCRATCH" --s
 X86_BIN="$(swift build -c release --arch x86_64 --scratch-path "$X86_SCRATCH" --show-bin-path)"
 
 rm -rf "$APP_BUNDLE"
-rm -f "$DMG_PATH" "$CLI_ARCHIVE"
+rm -f "$DMG_PATH"
 mkdir -p "$MACOS_DIR" "$RESOURCES_DIR"
 /usr/bin/lipo -create "$ARM_BIN/CopySight" "$X86_BIN/CopySight" -output "$MACOS_DIR/CopySight"
 chmod +x "$MACOS_DIR/CopySight"
 
 ICON_WORK="$(mktemp -d)"
 DMG_ROOT="$(mktemp -d)"
-CLI_ROOT="$(mktemp -d)"
-trap 'rm -rf "$ICON_WORK" "$DMG_ROOT" "$CLI_ROOT"' EXIT
+trap 'rm -rf "$ICON_WORK" "$DMG_ROOT"' EXIT
 swift "$ROOT_DIR/script/generate_icon.swift" "$ICON_WORK/icon_1024x1024.png"
 mkdir -p "$ICON_WORK/CopySight.iconset"
 for points in 16 32 128 256 512; do
@@ -75,12 +73,6 @@ ln -s /Applications "$DMG_ROOT/Applications"
 /usr/bin/hdiutil create -quiet -volname "$APP_NAME" -srcfolder "$DMG_ROOT" -ov -format UDZO "$DMG_PATH"
 /usr/bin/codesign --force --timestamp --sign "$DEVELOPER_ID" "$DMG_PATH"
 
-/usr/bin/lipo -create "$ARM_BIN/copysight" "$X86_BIN/copysight" -output "$CLI_ROOT/copysight"
-chmod +x "$CLI_ROOT/copysight"
-/usr/bin/codesign --force --options runtime --timestamp --sign "$DEVELOPER_ID" "$CLI_ROOT/copysight"
-cp "$ROOT_DIR/LICENSE" "$CLI_ROOT/LICENSE"
-/usr/bin/tar -C "$CLI_ROOT" -czf "$CLI_ARCHIVE" copysight LICENSE
-
 if [[ -n "${APPSTORE_PRIVATE_KEY_PATH:-}" && -n "${APPSTORE_KEY_ID:-}" && -n "${APPSTORE_ISSUER_ID:-}" ]]; then
   NOTARY_KEY_PATH="$APPSTORE_PRIVATE_KEY_PATH"
   if [[ ! -f "$NOTARY_KEY_PATH" ]]; then
@@ -101,5 +93,5 @@ fi
 
 /usr/sbin/spctl --assess --type open --context context:primary-signature --verbose=2 "$DMG_PATH"
 /usr/bin/hdiutil verify "$DMG_PATH"
-/usr/bin/file "$MACOS_DIR/CopySight" "$CLI_ROOT/copysight"
-/usr/bin/shasum -a 256 "$DMG_PATH" "$CLI_ARCHIVE"
+/usr/bin/file "$MACOS_DIR/CopySight"
+/usr/bin/shasum -a 256 "$DMG_PATH"
