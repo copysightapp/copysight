@@ -13,7 +13,7 @@ const [root, english, spanish, css, sitemap, config] = await Promise.all([
 for (const html of [english, spanish]) {
   assert.doesNotMatch(html, /\bCLI\b|brew install|copysight-cli/i);
   assert.match(html, /\/downloads\/CopySight-1\.1\.0\.dmg/g);
-  assert.doesNotMatch(html, /github\.com\/kattulus1997\/copysight\/releases/);
+  assert.doesNotMatch(html, /github\.com/i);
   assert.match(html, /https:\/\/apps\.apple\.com\/app\/id6797554906/g);
   assert.match(html, /⌃ ⌘ 2/);
   assert.match(html, /application\/ld\+json/);
