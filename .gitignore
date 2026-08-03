@@ -3,5 +3,6 @@
 dist/
 release/
 .vercel/
+.env*.local
 .DS_Store
 *.xcuserstate

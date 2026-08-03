@@ -139,7 +139,9 @@ footer { display: flex; justify-content: space-between; gap: 24px; padding: 28px
   .steps li { grid-template-columns: 34px 1fr; }
   .steps li span { grid-column: 2; }
   .detail-grid { grid-template-columns: 1fr; }
-  .terminal-row { align-items: flex-start; }
+  .terminal-row { align-items: flex-start; flex-wrap: wrap; }
+  .terminal-row code { min-width: 0; flex: 1 1 100%; white-space: normal; overflow-wrap: anywhere; }
+  .terminal pre code { white-space: pre-wrap; overflow-wrap: anywhere; }
   .final-cta, footer { align-items: flex-start; flex-direction: column; }
 }
 @media (prefers-reduced-motion: reduce) {
