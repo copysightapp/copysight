@@ -2,7 +2,7 @@
 
 CopySight es una app OCR nativa y de código abierto para macOS. Pulsa el atajo global, arrastra sobre cualquier texto visible y obtén el resultado en el portapapeles.
 
-[Mac App Store](https://apps.apple.com/app/id6797554906) · [Descarga directa 1.1.0](https://github.com/kattulus1997/copysight/releases/latest/download/CopySight-1.1.0.dmg) · [Web](https://copysight.guillermozubikarai.dev)
+[Mac App Store](https://apps.apple.com/app/id6797554906) · [Descarga directa 1.1.0](https://copysight.guillermozubikarai.dev/downloads/CopySight-1.1.0.dmg) · [Web](https://copysight.guillermozubikarai.dev)
 
 ## Por qué es rápida
 

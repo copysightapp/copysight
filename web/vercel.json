@@ -1,6 +1,16 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/es",
+      "permanent": false,
+      "has": [{ "type": "header", "key": "accept-language", "value": "^es.*" }]
+    },
+    { "source": "/", "destination": "/en", "permanent": false }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -9,6 +19,57 @@
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
         { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'none'" }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        { "key": "Cache-Control", "value": "private, no-store" },
+        { "key": "Vary", "value": "Accept-Language" }
+      ]
+    },
+    {
+      "source": "/en",
+      "headers": [
+        { "key": "Content-Language", "value": "en" },
+        { "key": "Cache-Control", "value": "public, max-age=300, must-revalidate" },
+        { "key": "CDN-Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800, stale-if-error=604800" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/es",
+      "headers": [
+        { "key": "Content-Language", "value": "es" },
+        { "key": "Cache-Control", "value": "public, max-age=300, must-revalidate" },
+        { "key": "CDN-Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800, stale-if-error=604800" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, max-age=86400" }
+      ]
+    },
+    {
+      "source": "/styles.css",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
+        { "key": "CDN-Cache-Control", "value": "public, max-age=31536000, immutable" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/downloads/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
+        { "key": "CDN-Cache-Control", "value": "public, max-age=31536000, immutable" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, max-age=31536000, immutable" },
+        { "key": "Content-Disposition", "value": "attachment; filename=CopySight-1.1.0.dmg" },
+        { "key": "Content-Type", "value": "application/x-apple-diskimage" }
+      ]
+    },
+    {
+      "source": "/(robots.txt|sitemap.xml)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" },
+        { "key": "CDN-Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" },
+        { "key": "Vercel-CDN-Cache-Control", "value": "public, max-age=86400" }
       ]
     }
   ]

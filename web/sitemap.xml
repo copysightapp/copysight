@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://copysight.guillermozubikarai.dev/</loc>
+    <loc>https://copysight.guillermozubikarai.dev/en</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://copysight.guillermozubikarai.dev/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://copysight.guillermozubikarai.dev/es" />
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://copysight.guillermozubikarai.dev/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://copysight.guillermozubikarai.dev/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://copysight.guillermozubikarai.dev/es" />
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
