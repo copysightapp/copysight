@@ -5,7 +5,7 @@ const html = await readFile(new URL("./index.html", import.meta.url), "utf8");
 const css = await readFile(new URL("./styles.css", import.meta.url), "utf8");
 const config = JSON.parse(await readFile(new URL("./vercel.json", import.meta.url), "utf8"));
 
-assert.match(html, /brew install kattulus1997\/copysight\/copysight/);
+assert.doesNotMatch(html, /\bCLI\b|brew install|copysight-cli/i);
 assert.match(html, /CopySight-1\.1\.0\.dmg/g);
 assert.match(html, /https:\/\/apps\.apple\.com\/app\/id6797554906/g);
 assert.match(html, /⌃ ⌘ 2/);

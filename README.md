@@ -32,18 +32,6 @@ El bundle queda en `dist/CopySight.app`. También puedes usar el botón **Run** 
 swift test
 ```
 
-## CLI
-
-El mismo motor OCR está disponible en Terminal, sin red ni dependencias de ejecución:
-
-```sh
-brew install kattulus1997/copysight/copysight
-copysight captura.png
-copysight --language es documento.jpg
-```
-
-Ejecuta `copysight --help` para ver las opciones de idioma, corrección y saltos de línea.
-
 Para generar el bundle optimizado y su ZIP distribuible:
 
 ```sh
