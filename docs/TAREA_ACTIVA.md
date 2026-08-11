@@ -1,6 +1,6 @@
 # Publicación, App Review y difusión de CopySight
 
-Última actualización: 2026-08-11 16:27 WEST.
+Última actualización: 2026-08-11 16:29 WEST.
 
 ## Estado actual
 
@@ -44,7 +44,7 @@ El repositorio, la web, la documentación inglesa y las superficies comunitarias
 
 ## Estado por capa
 
-- Local: este cierre se prepara sobre `main` en `34fc3f23e6f5dd9d4cf23dd195c14d4aa8517c41`; el registro y el aprendizaje del verificador de entitlements se publicarán mediante una PR final y después se comprobará el worktree limpio.
+- Local: el cierre y el aprendizaje del verificador de entitlements quedaron fusionados en `main` mediante PR #5, commit `e97c893e6f5498862364153505ac29c0d83dd82f`; el worktree se comprobará limpio tras publicar esta última actualización del registro.
 - Pruebas: `swift test` pasó 5/5 tras regenerar una caché de Swift ligada a la ruta anterior; `node web/test.mjs` pasó; YAML de formularios validado; escáner editorial sin avisos.
 - Commit/remoto: PR #2, PR #3 y PR #4 fusionadas en `main`; sandbox y DMG publicados en `37920c5aa407ef57eb15e30ba00ef41e65e4cb48`, e icono web en `34fc3f23e6f5dd9d4cf23dd195c14d4aa8517c41`.
 - Web: despliegue de producción `dpl_CrrSyw2MQShafpnChsWbM321dyoH`; dominio público verificado detrás de Cloudflare en `https://copysight.guillermozubikarai.dev`, incluido `web/icon.png` de 1024 x 1024.
@@ -88,3 +88,4 @@ El repositorio, la web, la documentación inglesa y las superficies comunitarias
 - 2026-08-11: r/swift publicó el comentario técnico `p31ypeo`; r/macosprogramming publicó el artículo `1vlkker`; r/coolgithubprojects publicó la ficha `1vlklhl`. Las tres superficies mostraron el contenido y el enlace al repositorio desde la cuenta autenticada.
 - 2026-08-11 16:27 WEST: App Store Connect volvió a mostrar `1.1.0 Pendiente de revisión`; `open-source-mac-os-apps#1267` seguía abierta y fusionable, y `awesome-mac#2546` abierta y fusionable con License Compliance aún pendiente. La web respondió HTTP 200 mediante Cloudflare desde MAD y la descarga de GitHub Release respondió con su redirección de activo.
 - 2026-08-11 16:28 WEST: todas las pestañas y recursos de Chrome abiertos para App Store Connect, GitHub, directorios y Reddit quedaron finalizados.
+- 2026-08-11 16:29 WEST: PR #5 fusionada en `main` como `e97c893e6f5498862364153505ac29c0d83dd82f`; la PR no tenía comprobaciones remotas configuradas y `node web/test.mjs` y `git diff --check` habían pasado localmente.
