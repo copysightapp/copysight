@@ -1,0 +1,23 @@
+name: Focused improvement
+description: Propose an improvement to CopySight's native OCR workflow
+title: "Improvement: "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What concrete OCR or capture problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the smallest useful behavior change.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Note any existing macOS capability or simpler workflow you tried.

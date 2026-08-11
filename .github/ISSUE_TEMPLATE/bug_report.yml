@@ -1,0 +1,50 @@
+name: Bug report
+description: Report a reproducible problem in CopySight
+title: "Bug: "
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping improve CopySight. Do not include sensitive captured text or images.
+  - type: input
+    id: version
+    attributes:
+      label: CopySight version
+      placeholder: "1.1.0"
+    validations:
+      required: true
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and Mac model
+      placeholder: "macOS 15.6, MacBook Air M3"
+    validations:
+      required: true
+  - type: dropdown
+    id: installation
+    attributes:
+      label: Installation
+      options:
+        - Mac App Store
+        - Direct-download DMG
+        - Built from source
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Provide the smallest sequence that consistently shows the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true
