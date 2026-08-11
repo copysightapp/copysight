@@ -1,6 +1,6 @@
 # Publicación, App Review y difusión de CopySight
 
-Última actualización: 2026-08-11 16:30 WEST.
+Última actualización: 2026-08-11 16:35 WEST.
 
 ## Estado actual
 
@@ -18,6 +18,7 @@ El repositorio, la web, la documentación inglesa y las superficies comunitarias
 - [x] Publicar el nuevo DMG directo con App Sandbox ya verificado, según el comentario de revisión sobre `script/package_release.sh`.
 - [x] Publicar el proyecto en comunidades y directorios adecuados sin infringir sus normas ni duplicar mensajes.
 - [x] Verificar cada publicación y registrar cualquier espera externa real. Git se comprobará de nuevo tras fusionar este registro final.
+- [x] Retirar del repositorio público la configuración interna y sanear sus referencias históricas.
 
 ## Decisiones vigentes
 
@@ -44,9 +45,9 @@ El repositorio, la web, la documentación inglesa y las superficies comunitarias
 
 ## Estado por capa
 
-- Local: el cierre y el aprendizaje del verificador de entitlements quedaron fusionados en `main` mediante PR #5, commit `e97c893e6f5498862364153505ac29c0d83dd82f`; el worktree se comprobará limpio tras publicar esta última actualización del registro.
+- Local: la configuración interna se eliminó de todos los commits alcanzables y las menciones históricas se neutralizaron; el worktree se comprobará limpio después de publicar la nueva historia.
 - Pruebas: `swift test` pasó 5/5 tras regenerar una caché de Swift ligada a la ruta anterior; `node web/test.mjs` pasó; YAML de formularios validado; escáner editorial sin avisos.
-- Commit/remoto: PR #2, PR #3 y PR #4 fusionadas en `main`; sandbox y DMG publicados en `37920c5aa407ef57eb15e30ba00ef41e65e4cb48`, e icono web en `34fc3f23e6f5dd9d4cf23dd195c14d4aa8517c41`.
+- Commit/remoto: PR #2, PR #3 y PR #4 fusionadas en `main`; sandbox, DMG e icono web publicados. Los identificadores históricos anteriores dejan de ser canónicos tras el saneamiento.
 - Web: despliegue de producción `dpl_CrrSyw2MQShafpnChsWbM321dyoH`; dominio público verificado detrás de Cloudflare en `https://copysight.guillermozubikarai.dev`, incluido `web/icon.png` de 1024 x 1024.
 - GitHub público: `https://github.com/copysightapp/copysight`; organización `https://github.com/copysightapp`; discusión de bienvenida `https://github.com/copysightapp/copysight/discussions/1`.
 - App Review: Guideline 2.1 - Information Needed. Apple pidió detalles sobre Grabación de pantalla; respuesta completa enviada el 2026-08-11 a las 15:05 WEST. Envío `fd8d3b70-ab40-49dd-b1b3-24b9f83dd3a8`, build 1.1.0 (4), pendiente de revisión desde las 15:06 WEST.
@@ -90,3 +91,4 @@ El repositorio, la web, la documentación inglesa y las superficies comunitarias
 - 2026-08-11 16:28 WEST: todas las pestañas y recursos de Chrome abiertos para App Store Connect, GitHub, directorios y Reddit quedaron finalizados.
 - 2026-08-11 16:29 WEST: PR #5 fusionada en `main` como `e97c893e6f5498862364153505ac29c0d83dd82f`; la PR no tenía comprobaciones remotas configuradas y `node web/test.mjs` y `git diff --check` habían pasado localmente.
 - 2026-08-11 16:30 WEST: correo de finalización enviado a la propia cuenta Gmail autenticada con el resultado, los destinos públicos y la distinción expresa entre revisión pendiente y aprobación.
+- 2026-08-11 16:35 WEST: eliminados de todo el historial alcanzable los archivos de configuración interna y neutralizadas las menciones al proceso de desarrollo. La propuesta externa de `awesome-mac` también quedó revisada.
