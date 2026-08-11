@@ -15,3 +15,12 @@
 - Validated route: use `chrome:control-chrome`, advance to the password step, focus the secure field, and send `Input.insertText` through the tab's documented `cdp` capability. Never persist or echo the credential, and leave any 2FA step to the user.
 - Evidence: App Store Connect loaded the exact CopySight submission, exposed the reviewer message, and accepted the corrected submission in `WAITING_FOR_REVIEW`.
 - Revalidate when: Apple changes its login flow or the controlled Chrome runtime changes secure-field handling.
+
+## Verify dotted entitlement keys as literal plist keys
+
+- Scope: CopySight release packaging and verification of signed macOS bundles.
+- Symptom: extracting `com.apple.security.app-sandbox` from signed entitlements reported a missing value even though codesign had embedded it.
+- Failed approach: `plutil -extract com.apple.security.app-sandbox` treats the dots as key-path separators rather than as part of one literal key.
+- Validated route: dump the signed bundle entitlements with `codesign -d --entitlements :-` and select the exact sibling value of the literal key with `xmllint`.
+- Evidence: the app mounted from the notarized DMG returned a true sandbox entitlement and passed strict codesign and Gatekeeper validation.
+- Revalidate when: `plutil` gains a documented literal-key mode or the entitlement verification tooling changes.
