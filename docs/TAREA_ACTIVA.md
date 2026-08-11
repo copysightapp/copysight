@@ -1,6 +1,6 @@
 # Publicación, App Review y difusión de CopySight
 
-Última actualización: 2026-08-11 16:35 WEST.
+Última actualización: 2026-08-11 16:38 WEST.
 
 ## Estado actual
 
@@ -66,6 +66,7 @@ El repositorio, la web, la documentación inglesa y las superficies comunitarias
 - r/opensource: no se hizo una publicación desde una cuenta sin historial en la comunidad porque sus reglas prohíben el `drive-by posting` y la autopromoción excesiva.
 - MacRumors y Apple Developer Forums: no se publicó; MacRumors aplica restricciones editoriales y Apple exige evitar autopromoción. r/macOS, r/SwiftUI y r/apple reservan promociones para sábado o domingo, por lo que no se incumplió su ventana semanal.
 - La decisión final de App Review pertenece a Apple; una revisión pendiente no garantiza la aprobación.
+- GitHub conserva parches internos de PR fusionadas en referencias de solo lectura. Ya no son alcanzables desde ramas ni etiquetas públicas; purgarlos por completo requeriría intervención de GitHub Support o recrear el repositorio, con pérdida de sus PR, Discussions y metadatos.
 
 ## Evidencia e historial
 
@@ -92,3 +93,4 @@ El repositorio, la web, la documentación inglesa y las superficies comunitarias
 - 2026-08-11 16:29 WEST: PR #5 fusionada en `main` como `e97c893e6f5498862364153505ac29c0d83dd82f`; la PR no tenía comprobaciones remotas configuradas y `node web/test.mjs` y `git diff --check` habían pasado localmente.
 - 2026-08-11 16:30 WEST: correo de finalización enviado a la propia cuenta Gmail autenticada con el resultado, los destinos públicos y la distinción expresa entre revisión pendiente y aprobación.
 - 2026-08-11 16:35 WEST: eliminados de todo el historial alcanzable los archivos de configuración interna y neutralizadas las menciones al proceso de desarrollo. La propuesta externa de `awesome-mac` también quedó revisada.
+- 2026-08-11 16:38 WEST: `main`, `v1.0.0` y `v1.1.0` se publicaron de forma atómica con protección de estado remoto. Los tres archivos fuente descargados desde GitHub pasaron el escaneo; README, Release 1.1.0 y web pública siguieron respondiendo correctamente. La API rechazó la eliminación de `refs/pull/*` por ser referencias de solo lectura.
