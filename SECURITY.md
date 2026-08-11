@@ -1,7 +1,13 @@
 # Security
 
-CopySight no incluye servidor, red, cuentas ni analítica. Las imágenes se procesan localmente y no se persisten.
+CopySight has no server, network client, accounts, or analytics. Captured images are processed locally and are not persisted.
 
-Para comunicar una vulnerabilidad, abre un aviso privado mediante **Security → Report a vulnerability** en GitHub. No publiques detalles explotables en un issue público antes de que exista una corrección.
+## Reporting a vulnerability
 
-Las versiones soportadas son la Release estable más reciente sobre macOS 14 o posterior.
+Use GitHub's **Security → Report a vulnerability** flow to send a private report. Include the affected version, macOS version, impact, and the smallest reproducible example you can provide.
+
+Do not publish exploitable details in a public issue before a fix is available. You can expect an initial response within seven days.
+
+## Supported versions
+
+Security fixes target the latest stable CopySight release on macOS 14 or later.
