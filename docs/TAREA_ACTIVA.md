@@ -1,6 +1,6 @@
 # Publicación, App Review y difusión de CopySight
 
-Última actualización: 2026-08-11 16:29 WEST.
+Última actualización: 2026-08-11 16:30 WEST.
 
 ## Estado actual
 
@@ -89,3 +89,4 @@ El repositorio, la web, la documentación inglesa y las superficies comunitarias
 - 2026-08-11 16:27 WEST: App Store Connect volvió a mostrar `1.1.0 Pendiente de revisión`; `open-source-mac-os-apps#1267` seguía abierta y fusionable, y `awesome-mac#2546` abierta y fusionable con License Compliance aún pendiente. La web respondió HTTP 200 mediante Cloudflare desde MAD y la descarga de GitHub Release respondió con su redirección de activo.
 - 2026-08-11 16:28 WEST: todas las pestañas y recursos de Chrome abiertos para App Store Connect, GitHub, directorios y Reddit quedaron finalizados.
 - 2026-08-11 16:29 WEST: PR #5 fusionada en `main` como `e97c893e6f5498862364153505ac29c0d83dd82f`; la PR no tenía comprobaciones remotas configuradas y `node web/test.mjs` y `git diff --check` habían pasado localmente.
+- 2026-08-11 16:30 WEST: correo de finalización enviado a la propia cuenta Gmail autenticada con el resultado, los destinos públicos y la distinción expresa entre revisión pendiente y aprobación.
