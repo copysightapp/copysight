@@ -1,6 +1,6 @@
 # Publicación, App Review y difusión de CopySight
 
-Última actualización: 2026-08-11 16:38 WEST.
+Última actualización: 2026-08-11 16:41 WEST.
 
 ## Estado actual
 
@@ -94,3 +94,4 @@ El repositorio, la web, la documentación inglesa y las superficies comunitarias
 - 2026-08-11 16:30 WEST: correo de finalización enviado a la propia cuenta Gmail autenticada con el resultado, los destinos públicos y la distinción expresa entre revisión pendiente y aprobación.
 - 2026-08-11 16:35 WEST: eliminados de todo el historial alcanzable los archivos de configuración interna y neutralizadas las menciones al proceso de desarrollo. La propuesta externa de `awesome-mac` también quedó revisada.
 - 2026-08-11 16:38 WEST: `main`, `v1.0.0` y `v1.1.0` se publicaron de forma atómica con protección de estado remoto. Los tres archivos fuente descargados desde GitHub pasaron el escaneo; README, Release 1.1.0 y web pública siguieron respondiendo correctamente. La API rechazó la eliminación de `refs/pull/*` por ser referencias de solo lectura.
+- 2026-08-11 16:41 WEST: la descarga real de GitHub Release 1.1.0 mantuvo el SHA-256 esperado, DMG válido, ticket grapado, notarización y Gatekeeper aceptados, firma Developer ID estricta, hardened runtime, App Sandbox y binario universal. No fue necesario sustituir el activo.
