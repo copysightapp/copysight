@@ -24,8 +24,14 @@ for (const html of [english, spanish]) {
 assert.match(root, /url=\/en/);
 assert.match(english, /<html lang="en">/);
 assert.match(english, /Screen text\. Copied\./);
+assert.match(english, /Privacy policy/);
+assert.match(english, /never written to disk, retained after recognition, uploaded, or sent to a server/);
+assert.match(english, /does not collect, receive, store, sell, or share/);
 assert.match(spanish, /<html lang="es">/);
 assert.match(spanish, /Texto en pantalla\. Copiado\./);
+assert.match(spanish, /Política de privacidad/);
+assert.match(spanish, /Nunca se escribe en disco, se conserva después del reconocimiento, se sube ni se envía a un servidor/);
+assert.match(spanish, /no recoge, recibe, almacena, vende ni comparte con terceros/);
 assert.match(css, /@media \(max-width: 600px\)/);
 assert.match(sitemap, /\/en</);
 assert.match(sitemap, /\/es</);
