@@ -16,6 +16,7 @@ RESOURCES_DIR="$CONTENTS/Resources"
 ARM_SCRATCH="$ROOT_DIR/.build/release-arm64"
 X86_SCRATCH="$ROOT_DIR/.build/release-x86_64"
 DMG_PATH="$RELEASE_DIR/$APP_NAME-$VERSION.dmg"
+ENTITLEMENTS="$ROOT_DIR/script/CopySight.entitlements"
 
 cd "$ROOT_DIR"
 swift build -c release --arch arm64 --scratch-path "$ARM_SCRATCH"
@@ -65,8 +66,12 @@ cat >"$CONTENTS/Info.plist" <<PLIST
 </dict></plist>
 PLIST
 
-/usr/bin/codesign --force --options runtime --timestamp --sign "$DEVELOPER_ID" "$APP_BUNDLE"
+/usr/bin/codesign --force --options runtime --timestamp --entitlements "$ENTITLEMENTS" --sign "$DEVELOPER_ID" "$APP_BUNDLE"
 /usr/bin/codesign --verify --deep --strict --verbose=2 "$APP_BUNDLE"
+[[ "$(/usr/bin/codesign -d --entitlements :- "$APP_BUNDLE" 2>/dev/null | /usr/bin/xmllint --xpath "boolean(/plist/dict/key[.='com.apple.security.app-sandbox']/following-sibling::*[1][self::true])" - 2>/dev/null)" == "true" ]] || {
+  echo "App Sandbox entitlement is missing from $APP_BUNDLE" >&2
+  exit 1
+}
 
 cp -R "$APP_BUNDLE" "$DMG_ROOT/"
 ln -s /Applications "$DMG_ROOT/Applications"

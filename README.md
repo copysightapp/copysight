@@ -29,9 +29,7 @@ The [Mac App Store build](https://apps.apple.com/app/id6797554906) is the recomm
 
 ### Direct download
 
-The [universal macOS 1.1.0 DMG](https://copysight.guillermozubikarai.dev/downloads/CopySight-1.1.0.dmg) is Developer ID signed, notarized by Apple, and contains both Apple Silicon and Intel code. Open the DMG and move CopySight to **Applications**.
-
-The direct build is notarized but is not currently App Sandbox constrained. See [Security](#security) for the supported disclosure channel.
+The [universal macOS 1.1.0 DMG](https://copysight.guillermozubikarai.dev/downloads/CopySight-1.1.0.dmg) is Developer ID signed, notarized by Apple, App Sandbox constrained, and contains both Apple Silicon and Intel code. Open the DMG and move CopySight to **Applications**.
 
 ### Requirements
 
