@@ -1,0 +1,1 @@
+CopySight now releases capture and Settings resources as soon as you finish using them, reducing idle memory use and background impact while preserving the same capture workflow.

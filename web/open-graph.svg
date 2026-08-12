@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">CopySight</title>
+  <desc id="desc">Copy text from any screen on Mac</desc>
+  <rect width="1200" height="630" fill="#f7f7f5"/>
+  <rect x="760" width="440" height="630" fill="#0d0d0c"/>
+  <g font-family="Avenir Next, Avenir, Helvetica, sans-serif">
+    <text x="76" y="104" fill="#171714" font-size="34" font-weight="700"><tspan fill="#ff4d00">⌗</tspan><tspan dx="10">CopySight</tspan></text>
+    <text x="76" y="252" fill="#171714" font-size="70" font-weight="700" letter-spacing="-3">Screen text.</text>
+    <text x="76" y="330" fill="#171714" font-size="70" font-weight="700" letter-spacing="-3">Copied.</text>
+    <text x="78" y="398" fill="#595957" font-size="25">Private, on-device OCR for macOS</text>
+    <text x="78" y="531" fill="#ff4d00" font-size="22" font-weight="700">⌃⌘2 · Select · Paste</text>
+    <text x="830" y="176" fill="#85857e" font-size="26">Text in any app</text>
+    <text x="830" y="248" fill="#ffffff" font-size="31" font-weight="700">becomes editable</text>
+    <text x="830" y="296" fill="#ffffff" font-size="31" font-weight="700">in one shortcut.</text>
+    <rect x="805" y="205" width="330" height="126" fill="none" stroke="#ff4d00" stroke-width="4"/>
+    <text x="830" y="467" fill="#85857e" font-size="21">No uploads · No account</text>
+  </g>
+</svg>

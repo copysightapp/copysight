@@ -1,0 +1,16 @@
+CopySight turns text visible anywhere on your Mac into editable text. Press Control-Command-2, drag over a screen region, and paste the recognized result.
+
+Recognition runs locally with Apple Vision. Screenshots are never saved or uploaded. CopySight has no account, analytics, network service, subscription, or background capture.
+
+Use CopySight to copy text from images, videos, protected PDFs, presentations, remote desktops, and any app that does not let you select its text.
+
+Features:
+• One global shortcut for screen text capture
+• Automatic, English, or Spanish recognition
+• Optional language correction and preserved line breaks
+• Repeat the previous region without drawing it again
+• Automatic clipboard copy and last-result recovery
+• Configurable shortcut and launch at login
+• Native support for Apple Silicon and Intel Macs
+
+CopySight is a one-time purchase. There are no subscriptions, in-app purchases, accounts, ads, or tracking.

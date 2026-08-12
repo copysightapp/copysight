@@ -1,0 +1,9 @@
+CopySight is a menu-bar OCR utility. It uses Screen Recording only after the user chooses Capture Text or Capture Previous Selection. The user draws a region, the app captures that region once with ScreenCaptureKit, and Apple Vision performs OCR locally. Images are not saved or uploaded, and the app contains no network service, analytics, account, subscription, or in-app purchase.
+
+Review steps:
+1. Open CopySight and find its viewfinder icon in the menu bar.
+2. Choose Capture Text or press Control-Command-2.
+3. Grant Screen Recording when macOS requests it, then reopen CopySight if prompted.
+4. Drag over visible text. The recognized result is copied to the clipboard.
+
+Release evidence: CopySight 1.1.1 build 5; idle-resource optimization; EN/ES metadata complete.

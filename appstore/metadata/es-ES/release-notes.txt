@@ -1,0 +1,1 @@
+CopySight libera ahora los recursos de captura y Ajustes en cuanto dejas de usarlos, reduciendo la memoria en reposo y el impacto en segundo plano sin cambiar el flujo de captura.

@@ -1,0 +1,1 @@
+ocr,clipboard,screenshot,extract,recognize,image,vision,productivity,menubar,offline

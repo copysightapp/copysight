@@ -55,16 +55,6 @@
       ]
     },
     {
-      "source": "/downloads/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "CDN-Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "Vercel-CDN-Cache-Control", "value": "public, max-age=31536000, immutable" },
-        { "key": "Content-Disposition", "value": "attachment; filename=CopySight-1.1.0.dmg" },
-        { "key": "Content-Type", "value": "application/x-apple-diskimage" }
-      ]
-    },
-    {
       "source": "/(robots.txt|sitemap.xml)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" },

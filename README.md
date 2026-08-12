@@ -1,5 +1,7 @@
 # CopySight
 
+English · [Español](README.es.md)
+
 **Copy screen text on macOS with one shortcut.**
 
 CopySight lives in the menu bar. Press `⌃⌘2`, drag over a region, and paste the
@@ -7,7 +9,7 @@ recognized text wherever you need it. Capture and OCR run locally with Apple
 frameworks; there is no account, analytics, or background service.
 
 [Mac App Store](https://apps.apple.com/app/id6797554906) ·
-[Signed direct download](https://copysight.guillermozubikarai.dev/downloads/CopySight-1.1.0.dmg) ·
+[Signed GitHub release](https://github.com/copysightapp/copysight/releases/download/v1.1.1/CopySight-1.1.1.dmg) ·
 [Website](https://copysight.guillermozubikarai.dev)
 
 <img src="appstore/screenshots/en-US/01-selector.png" alt="CopySight selecting a screen region and turning it into editable text" width="100%">
@@ -29,7 +31,7 @@ The [Mac App Store build](https://apps.apple.com/app/id6797554906) is the recomm
 
 ### Direct download
 
-The [universal macOS 1.1.0 DMG](https://copysight.guillermozubikarai.dev/downloads/CopySight-1.1.0.dmg) is Developer ID signed, notarized by Apple, App Sandbox constrained, and contains both Apple Silicon and Intel code. Open the DMG and move CopySight to **Applications**.
+The [universal macOS 1.1.1 DMG](https://github.com/copysightapp/copysight/releases/download/v1.1.1/CopySight-1.1.1.dmg) is Developer ID signed, notarized by Apple, App Sandbox constrained, and contains both Apple Silicon and Intel code. Open the DMG and move CopySight to **Applications**.
 
 ### Requirements
 

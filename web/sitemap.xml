@@ -4,6 +4,7 @@
     <loc>https://copysight.guillermozubikarai.dev/en</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://copysight.guillermozubikarai.dev/en" />
     <xhtml:link rel="alternate" hreflang="es" href="https://copysight.guillermozubikarai.dev/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://copysight.guillermozubikarai.dev/" />
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,6 +12,7 @@
     <loc>https://copysight.guillermozubikarai.dev/es</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://copysight.guillermozubikarai.dev/en" />
     <xhtml:link rel="alternate" hreflang="es" href="https://copysight.guillermozubikarai.dev/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://copysight.guillermozubikarai.dev/" />
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
