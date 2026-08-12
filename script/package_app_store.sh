@@ -2,8 +2,8 @@
 set -euo pipefail
 
 APP_NAME="CopySight"
-VERSION="1.1.0"
-BUILD_NUMBER="4"
+VERSION="1.1.1"
+BUILD_NUMBER="5"
 BUNDLE_ID="app.copysight.mac"
 MIN_SYSTEM_VERSION="14.0"
 APP_IDENTITY="${COPY_SIGHT_APP_STORE_IDENTITY:-Apple Distribution: Guillermo López (99S8SSZP82)}"

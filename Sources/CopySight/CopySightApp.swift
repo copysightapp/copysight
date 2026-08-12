@@ -110,7 +110,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
   @objc private func copyLast() { model.copyLastText() }
 
   @objc private func showSettings() {
-    if settingsController == nil { settingsController = SettingsWindowController() }
+    if settingsController == nil {
+      settingsController = SettingsWindowController { [weak self] in
+        self?.settingsController = nil
+      }
+    }
     settingsController?.showWindow(nil)
     NSApp.activate(ignoringOtherApps: true)
     settingsController?.window?.makeKeyAndOrderFront(nil)

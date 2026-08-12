@@ -5,12 +5,13 @@ import CoreGraphics
 @MainActor
 final class SettingsWindowController: NSWindowController, NSWindowDelegate {
   private let defaults = UserDefaults.standard
+  private var onClose: (() -> Void)?
   private let language = NSPopUpButton()
   private let launchAtLogin = NSButton(
     checkboxWithTitle: L10n.text("settings.open_at_login"), target: nil, action: nil)
   private let permissionStatus = NSTextField(labelWithString: "")
 
-  convenience init() {
+  convenience init(onClose: @escaping () -> Void = {}) {
     let window = NSWindow(
       contentRect: NSRect(x: 0, y: 0, width: 440, height: 480),
       styleMask: [.titled, .closable],
@@ -21,8 +22,15 @@ final class SettingsWindowController: NSWindowController, NSWindowDelegate {
     window.isReleasedWhenClosed = false
     window.center()
     self.init(window: window)
+    self.onClose = onClose
     window.delegate = self
     window.contentView = makeContentView()
+  }
+
+  func windowWillClose(_ notification: Notification) {
+    let onClose = onClose
+    self.onClose = nil
+    onClose?()
   }
 
   func windowDidBecomeKey(_ notification: Notification) {
@@ -175,11 +183,10 @@ final class SettingsWindowController: NSWindowController, NSWindowDelegate {
   }
 
   private func updatePermissionStatus() {
+    let isAllowed = CGPreflightScreenCaptureAccess()
     permissionStatus.stringValue =
-      CGPreflightScreenCaptureAccess()
-      ? L10n.text("settings.allowed") : L10n.text("settings.required")
-    permissionStatus.textColor =
-      CGPreflightScreenCaptureAccess() ? .secondaryLabelColor : .controlAccentColor
+      isAllowed ? L10n.text("settings.allowed") : L10n.text("settings.required")
+    permissionStatus.textColor = isAllowed ? .secondaryLabelColor : .controlAccentColor
   }
 
   private func updateLaunchAtLoginStatus() {

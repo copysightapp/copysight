@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1 — 2026-08-12
+
+- Menor consumo de memoria después de cerrar Ajustes.
+- Liberación inmediata de los overlays de selección y de los temporales de Vision.
+- Sin polling ni trabajo periódico: CopySight permanece en 0 % de CPU cuando está inactiva.
+
 ## 1.1.0 — 2026-08-03
 
 - El atajo predeterminado pasa a `⌃⌘2` para abrir el selector de región.

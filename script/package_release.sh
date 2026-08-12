@@ -2,7 +2,7 @@
 set -euo pipefail
 
 APP_NAME="CopySight"
-VERSION="1.1.0"
+VERSION="1.1.1"
 BUNDLE_ID="app.copysight.mac"
 MIN_SYSTEM_VERSION="14.0"
 DEVELOPER_ID="${COPY_SIGHT_DEVELOPER_ID:-Developer ID Application: Guillermo López (99S8SSZP82)}"
@@ -55,7 +55,7 @@ cat >"$CONTENTS/Info.plist" <<PLIST
   <key>CFBundleLocalizations</key><array><string>en</string><string>es</string></array>
   <key>CFBundlePackageType</key><string>APPL</string>
   <key>CFBundleShortVersionString</key><string>$VERSION</string>
-  <key>CFBundleVersion</key><string>4</string>
+  <key>CFBundleVersion</key><string>5</string>
   <key>LSMinimumSystemVersion</key><string>$MIN_SYSTEM_VERSION</string>
   <key>ITSAppUsesNonExemptEncryption</key><false/>
   <key>LSUIElement</key><true/>

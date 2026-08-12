@@ -39,6 +39,17 @@ final class OCRTextLayoutTests: XCTestCase {
     )
   }
 
+  func testClosingSettingsNotifiesItsOwner() async {
+    await MainActor.run {
+      var didClose = false
+      let controller = SettingsWindowController { didClose = true }
+
+      controller.window?.close()
+
+      XCTAssertTrue(didClose)
+    }
+  }
+
   func testVisionRecognizesRenderedText() async throws {
     let image = makeTextImage("CopySight 2026")
     let options = RecognitionOptions(

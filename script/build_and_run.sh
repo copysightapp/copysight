@@ -18,7 +18,7 @@ APP_MACOS="$APP_CONTENTS/MacOS"
 APP_RESOURCES="$APP_CONTENTS/Resources"
 APP_BINARY="$APP_MACOS/$APP_NAME"
 INFO_PLIST="$APP_CONTENTS/Info.plist"
-ZIP_PATH="$DIST_DIR/CopySight-1.1.0-macos.zip"
+ZIP_PATH="$DIST_DIR/CopySight-1.1.1-macos.zip"
 
 pkill -x "$APP_NAME" >/dev/null 2>&1 || true
 
@@ -50,9 +50,9 @@ cat >"$INFO_PLIST" <<PLIST
   <key>CFBundlePackageType</key>
   <string>APPL</string>
   <key>CFBundleShortVersionString</key>
-  <string>1.1.0</string>
+  <string>1.1.1</string>
   <key>CFBundleVersion</key>
-  <string>4</string>
+  <string>5</string>
   <key>LSMinimumSystemVersion</key>
   <string>$MIN_SYSTEM_VERSION</string>
   <key>ITSAppUsesNonExemptEncryption</key>

@@ -73,21 +73,23 @@ public final class TextRecognizer {
     -> String
   {
     try await Task.detached(priority: .userInitiated) {
-      let request = VNRecognizeTextRequest()
-      request.recognitionLevel = .accurate
-      request.usesLanguageCorrection = options.languageCorrection
-      request.automaticallyDetectsLanguage = options.language == .automatic
-      if let languages = options.language.visionLanguages {
-        request.recognitionLanguages = languages
-      }
+      try autoreleasepool {
+        let request = VNRecognizeTextRequest()
+        request.recognitionLevel = .accurate
+        request.usesLanguageCorrection = options.languageCorrection
+        request.automaticallyDetectsLanguage = options.language == .automatic
+        if let languages = options.language.visionLanguages {
+          request.recognitionLanguages = languages
+        }
 
-      let handler = VNImageRequestHandler(cgImage: image, options: [:])
-      try handler.perform([request])
-      let fragments = (request.results ?? []).compactMap { observation -> RecognizedFragment? in
-        guard let candidate = observation.topCandidates(1).first else { return nil }
-        return RecognizedFragment(text: candidate.string, bounds: observation.boundingBox)
+        let handler = VNImageRequestHandler(cgImage: image, options: [:])
+        try handler.perform([request])
+        let fragments = (request.results ?? []).compactMap { observation -> RecognizedFragment? in
+          guard let candidate = observation.topCandidates(1).first else { return nil }
+          return RecognizedFragment(text: candidate.string, bounds: observation.boundingBox)
+        }
+        return OCRTextLayout.render(fragments, preserveLineBreaks: options.preserveLineBreaks)
       }
-      return OCRTextLayout.render(fragments, preserveLineBreaks: options.preserveLineBreaks)
     }.value
   }
 }

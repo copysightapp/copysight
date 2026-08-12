@@ -44,9 +44,9 @@ final class SelectionOverlayController {
 
   private func dismiss(result: ScreenSelection?, notify: Bool = true) {
     for panel in panels {
-      panel.orderOut(nil)
+      panel.close()
     }
-    panels.removeAll()
+    panels.removeAll(keepingCapacity: false)
     guard notify else { return }
     let callback = completion
     completion = nil
